@@ -1,10 +1,16 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ searchQuery, setSearchQuery }) => {
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      setSearchQuery(e.target.value);
+    }
+  };
+
   return (
     <div>
       <h2>SAMY</h2>
-      <input type="submit" value="You're looking for something?" />
+      <input type="text" placeholder={searchQuery} onKeyDown={handleKeyPress} />
     </div>
   );
 };
