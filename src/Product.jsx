@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 
-const Product = () => {
-  const [isLiked, setIsLiked] = useState(false);
+const Product = ({ product }) => {
+  const [isLiked, setIsLiked] = useState(product.liked);
 
   return (
     <div style={{ border: "1px solid blue", padding: "10px", margin: "10px" }}>
-      <div>28.00€</div>
-      <img src="https://via.placeholder.com/150" />
+      <div>{product.price}.00€</div>
+      <img src={product.picture} />
       <div>
         <button onClick={() => setIsLiked(!isLiked)}>
-          Like {isLiked ? 1 : 0}
+          {isLiked ? "❤️" : "♡"}
         </button>
         <button>Send</button>
       </div>
       <div>
-        <h4>Cool Hat</h4>
-        by <span>Stylefresh</span>
+        <h4>{product.title}</h4>
+        by <span>{product.author}</span>
       </div>
     </div>
   );
