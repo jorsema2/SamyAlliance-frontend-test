@@ -45,20 +45,10 @@ const ProductsPage = () => {
       <ProductsList products={data.images.edges} />
       <button
         onClick={() => {
+          if (!data.images.pageInfo.hasNextPage) return;
           fetchMore({
             variables: {
               after: data.images.pageInfo.endCursor,
-            },
-            updateQuery: (prev, { fetchMoreResult }) => {
-              return {
-                images: {
-                  ...fetchMoreResult.images,
-                  edges: [
-                    ...prev.images.edges,
-                    ...fetchMoreResult.images.edges,
-                  ],
-                },
-              };
             },
           });
         }}
