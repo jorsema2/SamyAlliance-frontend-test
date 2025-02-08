@@ -1,5 +1,7 @@
 import React from "react";
 import { gql } from "@apollo/client";
+import { BiSend } from "react-icons/bi";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 export const LIKE_IMAGE = gql`
   mutation LikeImage($input: LikeImageInput!) {
@@ -35,9 +37,11 @@ const Product = ({ product, likeProduct }) => {
             product.liked ? "liked" : "unliked"
           }`}
         >
-          {product.liked ? "❤️" : "♡"} {product.likesCount}
+          {product.liked ? <FaHeart /> : <FaRegHeart />} {product.likesCount}
         </button>
-        <button aria-label="Send this product to someone">Send</button>
+        <button aria-label="Send this product to someone">
+          <BiSend /> 0
+        </button>
       </div>
       <div>
         <p>{product.title}</p>

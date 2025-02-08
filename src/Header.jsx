@@ -1,4 +1,5 @@
 import React from "react";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 
 const Header = ({ searchQuery, search }) => {
   const handleKeyPress = (e) => {
@@ -10,12 +11,15 @@ const Header = ({ searchQuery, search }) => {
   return (
     <header>
       <h1>SAMY</h1>
-      <input
-        type="text"
-        placeholder={searchQuery}
-        onKeyDown={handleKeyPress}
-        aria-label="Search"
-      />
+      <div>
+        <HiMagnifyingGlass className="search-icon" />
+        <input
+          type="text"
+          placeholder={searchQuery}
+          onKeyDown={handleKeyPress}
+          aria-label="Search"
+        />
+      </div>
     </header>
   );
 };
