@@ -5,8 +5,8 @@ import Header from "./Header";
 import ProductsList from "./ProductsList";
 
 const GET_PRODUCTS = gql`
-  query GetImages($first: Int, $after: String) {
-    images(first: $first, after: $after) {
+  query GetImages($first: Int, $after: String, $title: String) {
+    images(first: $first, after: $after, title: $title) {
       edges {
         node {
           id
@@ -29,30 +29,35 @@ const ProductsPage = () => {
   const [searchQuery, setSearchQuery] = useState(
     "You're looking for something?"
   );
-  const { loading, error, data, fetchMore } = useQuery(GET_PRODUCTS, {
+  const { loading, error, data, fetchMore, refetch } = useQuery(GET_PRODUCTS, {
     variables: {
       first: 12,
     },
   });
+
   const loaderRef = useRef(null);
 
+  const searchByTitle = (title) => {
+    refetch({
+      title,
+    });
+  };
+
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
-        if (
-          entry.isIntersecting &&
-          !loading &&
-          data?.images.pageInfo.hasNextPage
-        ) {
-          fetchMore({
-            variables: {
-              after: data.images.pageInfo.endCursor,
-            },
-          });
-        }
-      },
-    );
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (
+        entry.isIntersecting &&
+        !loading &&
+        data?.images.pageInfo.hasNextPage
+      ) {
+        fetchMore({
+          variables: {
+            after: data.images.pageInfo.endCursor,
+          },
+        });
+      }
+    });
 
     if (loaderRef.current) {
       observer.observe(loaderRef.current);
@@ -71,7 +76,7 @@ const ProductsPage = () => {
   return (
     <div>
       <p>{searchQuery}</p>
-      <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Header searchQuery={searchQuery} search={searchByTitle} />
       <ProductsList products={data.images.edges} />
       <div ref={loaderRef}></div>
     </div>

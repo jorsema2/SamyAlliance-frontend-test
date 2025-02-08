@@ -1,9 +1,9 @@
 import React from "react";
 
-const Header = ({ searchQuery, setSearchQuery }) => {
+const Header = ({ searchQuery, search }) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      setSearchQuery(e.target.value);
+      search(e.target.value);
     }
   };
 
