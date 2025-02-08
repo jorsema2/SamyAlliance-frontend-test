@@ -9,7 +9,7 @@ const Product = ({ product }) => {
       <img src={product.picture} />
       <div>
         <button onClick={() => setIsLiked(!isLiked)}>
-          {isLiked ? "❤️" : "♡"}
+          {isLiked ? "❤️" : "♡"} {product.likesCount}
         </button>
         <button>Send</button>
       </div>
