@@ -1,11 +1,11 @@
 import React from "react";
-import Product from "./Product";
+import ProductContainer from "./ProductContainer";
 
 const ProductsList = ({ products }) => {
   return (
     <div>
       {products.map((product) => (
-        <Product key={product.node.id} product={product.node} />
+        <ProductContainer key={product.node.id} product={product.node} />
       ))}
     </div>
   );

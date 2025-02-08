@@ -1,5 +1,5 @@
 import React from "react";
-import { gql, useMutation } from "@apollo/client";
+import { gql } from "@apollo/client";
 
 export const LIKE_IMAGE = gql`
   mutation LikeImage($input: LikeImageInput!) {
@@ -13,9 +13,7 @@ export const LIKE_IMAGE = gql`
   }
 `;
 
-const Product = ({ product }) => {
-  const [likeImage, { data, loading, error }] = useMutation(LIKE_IMAGE);
-
+const Product = ({ product, likeProduct }) => {
   return (
     <article
       style={{ border: "1px solid blue", padding: "10px", margin: "10px" }}
@@ -25,7 +23,7 @@ const Product = ({ product }) => {
       <div>
         <button
           onClick={() =>
-            likeImage({
+            likeProduct({
               variables: {
                 input: {
                   imageId: product.id,
