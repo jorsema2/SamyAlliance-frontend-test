@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 
 import Header from "./Header";
@@ -34,6 +34,36 @@ const ProductsPage = () => {
       first: 12,
     },
   });
+  const loaderRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (
+          entry.isIntersecting &&
+          !loading &&
+          data?.images.pageInfo.hasNextPage
+        ) {
+          fetchMore({
+            variables: {
+              after: data.images.pageInfo.endCursor,
+            },
+          });
+        }
+      },
+    );
+
+    if (loaderRef.current) {
+      observer.observe(loaderRef.current);
+    }
+
+    return () => {
+      if (loaderRef.current) {
+        observer.unobserve(loaderRef.current);
+      }
+    };
+  }, [loading, data, fetchMore]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
@@ -43,18 +73,7 @@ const ProductsPage = () => {
       <p>{searchQuery}</p>
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <ProductsList products={data.images.edges} />
-      <button
-        onClick={() => {
-          if (!data.images.pageInfo.hasNextPage) return;
-          fetchMore({
-            variables: {
-              after: data.images.pageInfo.endCursor,
-            },
-          });
-        }}
-      >
-        Fetch more
-      </button>
+      <div ref={loaderRef}></div>
     </div>
   );
 };
