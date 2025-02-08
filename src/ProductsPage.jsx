@@ -75,7 +75,7 @@ const ProductsPage = () => {
   if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <section>
+    <section className="products-page-layout">
       <Header searchQuery={searchQuery} search={searchByTitle} />
       <ProductsList products={data.images.edges} />
       <div ref={loaderRef}></div>

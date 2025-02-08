@@ -9,7 +9,7 @@ const Header = ({ searchQuery, search }) => {
   };
 
   return (
-    <header>
+    <header className="header">
       <h1>SAMY</h1>
       <div>
         <HiMagnifyingGlass className="search-icon" />

@@ -17,11 +17,11 @@ export const LIKE_IMAGE = gql`
 
 const Product = ({ product, likeProduct }) => {
   return (
-    <article
-      style={{ border: "1px solid blue", padding: "10px", margin: "10px" }}
-    >
-      <p>{product.price}.00€</p>
-      <img src={product.picture} alt={product.title} />
+    <article className="product">
+      <div className="price-tag">
+        <p>{product.price}.00€</p>
+      </div>
+      <img src={product.picture} alt={product.title} className="image" />
       <div>
         <button
           onClick={() =>

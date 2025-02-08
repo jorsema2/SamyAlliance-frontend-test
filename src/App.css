@@ -1,8 +1,7 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #F6F6F6;
 }
 
 .logo {
@@ -11,9 +10,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +23,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,4 +41,49 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.products-page-layout {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.product {
+  width: 400px;
+  height: 460px;
+  background-color: #fff;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.price-tag {
+  position: absolute;
+  color: #1D1D1B;
+
+  p {
+    position: absolute;
+    margin-left: 8px;
+  }
+}
+
+.price-tag::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-right: 120px solid transparent;
+  border-top: 120px solid #fff;
 }
