@@ -8,10 +8,15 @@ const Header = ({ searchQuery, search }) => {
   };
 
   return (
-    <div>
-      <h2>SAMY</h2>
-      <input type="text" placeholder={searchQuery} onKeyDown={handleKeyPress} />
-    </div>
+    <header>
+      <h1>SAMY</h1>
+      <input
+        type="text"
+        placeholder={searchQuery}
+        onKeyDown={handleKeyPress}
+        aria-label="Search"
+      />
+    </header>
   );
 };
 

@@ -75,12 +75,12 @@ const ProductsPage = () => {
   if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <div>
+    <section>
       <p>{searchQuery}</p>
       <Header searchQuery={searchQuery} search={searchByTitle} />
       <ProductsList products={data.images.edges} />
       <div ref={loaderRef}></div>
-    </div>
+    </section>
   );
 };
 

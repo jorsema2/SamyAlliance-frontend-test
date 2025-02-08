@@ -17,9 +17,11 @@ const Product = ({ product }) => {
   const [likeImage, { data, loading, error }] = useMutation(LIKE_IMAGE);
 
   return (
-    <div style={{ border: "1px solid blue", padding: "10px", margin: "10px" }}>
-      <div>{product.price}.00€</div>
-      <img src={product.picture} />
+    <article
+      style={{ border: "1px solid blue", padding: "10px", margin: "10px" }}
+    >
+      <p>{product.price}.00€</p>
+      <img src={product.picture} alt={product.title} />
       <div>
         <button
           onClick={() =>
@@ -31,16 +33,19 @@ const Product = ({ product }) => {
               },
             })
           }
+          aria-label={`Like this product. Currently ${
+            product.liked ? "liked" : "unliked"
+          }`}
         >
           {product.liked ? "❤️" : "♡"} {product.likesCount}
         </button>
-        <button>Send</button>
+        <button aria-label="Send this product to someone">Send</button>
       </div>
       <div>
-        <h4>{product.title}</h4>
+        <p>{product.title}</p>
         by <span>{product.author}</span>
       </div>
-    </div>
+    </article>
   );
 };
 
