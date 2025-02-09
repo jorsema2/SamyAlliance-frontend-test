@@ -170,6 +170,7 @@
 
     svg {
       width: 136px;
+      align-self: center;
     }
 
     .search-bar {
