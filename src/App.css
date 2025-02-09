@@ -61,6 +61,11 @@
 
   svg {
     align-self: flex-start;
+    width: 80px;
+  }
+
+  .search-bar {
+    margin-bottom: 18px;
   }
 }
 
@@ -161,6 +166,14 @@
     padding: 0 80px;
     flex-direction: row;
     justify-content: space-between;
+
+    svg {
+      width: 136px;
+    }
+
+    .search-bar {
+      margin-bottom: 0;
+    }
   }
 
   .product {
