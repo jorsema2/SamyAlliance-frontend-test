@@ -1,7 +1,7 @@
 import React from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 
-const Header = ({ searchQuery, search }) => {
+const Header = ({ search }) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       search(e.target.value);
@@ -40,7 +40,7 @@ const Header = ({ searchQuery, search }) => {
         <HiMagnifyingGlass className="search-icon" />
         <input
           type="text"
-          placeholder={searchQuery}
+          placeholder="You're looking for something?"
           onKeyDown={handleKeyPress}
           aria-label="Search"
         />

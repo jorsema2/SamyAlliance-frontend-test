@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 
 import Header from "./Header";
@@ -27,9 +27,6 @@ const GET_PRODUCTS = gql`
 `;
 
 const ProductsPage = () => {
-  const [searchQuery, setSearchQuery] = useState(
-    "You're looking for something?"
-  );
   const { loading, error, data, fetchMore, refetch } = useQuery(GET_PRODUCTS, {
     variables: {
       first: 12,
@@ -79,7 +76,7 @@ const ProductsPage = () => {
 
   return (
     <section>
-      <Header searchQuery={searchQuery} search={searchByTitle} />
+      <Header search={searchByTitle} />
       <ProductsList products={data.images.edges} />
       <div ref={loaderRef}></div>
     </section>
