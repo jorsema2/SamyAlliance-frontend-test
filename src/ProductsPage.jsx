@@ -45,20 +45,23 @@ const ProductsPage = () => {
   };
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      if (
-        entry.isIntersecting &&
-        !loading &&
-        data?.images.pageInfo.hasNextPage
-      ) {
-        fetchMore({
-          variables: {
-            after: data.images.pageInfo.endCursor,
-          },
-        });
-      }
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (
+          entry.isIntersecting &&
+          !loading &&
+          data?.images.pageInfo.hasNextPage
+        ) {
+          fetchMore({
+            variables: {
+              after: data.images.pageInfo.endCursor,
+            },
+          });
+        }
+      },
+      { rootMargin: "50px" }
+    );
 
     if (loaderRef.current) {
       observer.observe(loaderRef.current);
