@@ -52,11 +52,16 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   height: 120px;
   background-color: #fff;
-  padding: 0 80px;
+  padding: 0 24px;
+
+  svg {
+    align-self: flex-start;
+  }
 }
 
 .search-bar {
@@ -151,6 +156,13 @@
 }
 
 @media only screen and (min-device-width: 480px) {
+  .header {
+    height: 120px;
+    padding: 0 80px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .product {
     width: 400px;
     height: 460px;
