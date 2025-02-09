@@ -60,7 +60,7 @@
   background-color: #fff;
   padding: 0 24px;
 
-  svg {
+  .samy-logo {
     align-self: flex-start;
     width: 80px;
   }
@@ -79,6 +79,7 @@
   border-radius: 20px;
   box-sizing: border-box;
   padding: 0 10px;
+  color: #A1A1A1;
 
   input {
     font-weight: 400;
@@ -168,7 +169,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    svg {
+    .samy-logo {
       width: 136px;
       align-self: center;
     }
