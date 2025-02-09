@@ -15,7 +15,7 @@ export const LIKE_IMAGE = gql`
 `;
 
 const ProductContainer = ({ product }) => {
-  const [likeImage, { data, loading, error }] = useMutation(LIKE_IMAGE);
+  const [likeImage] = useMutation(LIKE_IMAGE);
 
   return <Product product={product} likeProduct={likeImage} />;
 };
