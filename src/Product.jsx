@@ -38,7 +38,9 @@ const Product = ({ product, likeProduct }) => {
           }`}
         >
           <div className="button-content-container">
-            <div className="like-icon">{product.liked ? <FaHeart /> : <FaRegHeart />}</div>
+            <div className="like-icon">
+              {product.liked ? <FaHeart /> : <FaRegHeart />}
+            </div>
             <div>{product.likesCount}</div>
           </div>
         </button>
@@ -52,8 +54,10 @@ const Product = ({ product, likeProduct }) => {
         </button>
       </div>
       <div>
-        <p>{product.title}</p>
-        by <span>{product.author}</span>
+        <p className="product-title">{product.title}</p>
+        <p className="product-subtitle">
+          by <span className="product-author">{product.author}</span>
+        </p>
       </div>
     </article>
   );
