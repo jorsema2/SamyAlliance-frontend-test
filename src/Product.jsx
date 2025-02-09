@@ -22,7 +22,7 @@ const Product = ({ product, likeProduct }) => {
         <p>{product.price}.00€</p>
       </div>
       <img src={product.picture} alt={product.title} className="image" />
-      <div>
+      <div className="interaction-buttons-container">
         <button
           onClick={() =>
             likeProduct({
@@ -37,10 +37,18 @@ const Product = ({ product, likeProduct }) => {
             product.liked ? "liked" : "unliked"
           }`}
         >
-          {product.liked ? <FaHeart /> : <FaRegHeart />} {product.likesCount}
+          <div className="button-content-container">
+            <div className="like-icon">{product.liked ? <FaHeart /> : <FaRegHeart />}</div>
+            <div>{product.likesCount}</div>
+          </div>
         </button>
         <button aria-label="Send this product to someone">
-          <BiSend /> 0
+          <div className="button-content-container">
+            <div>
+              <BiSend />
+            </div>
+            <div>0</div>
+          </div>
         </button>
       </div>
       <div>
