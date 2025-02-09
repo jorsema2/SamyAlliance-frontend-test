@@ -82,7 +82,7 @@ Los tests unitarios se pueden ejecutar con `npm run test`.
 
 Para lanzar los tests de Cypress, será necesario ejecutar la app primero usando `npm run dev` y comprobar que está ejecutándose en [http://127.0.0.1:3000/]([http://127.0.0.1:3000/]).
 
-Una vez la app se esté ejecutándo con `npm run dev`, se pueden ejecutar los tests de Cypress usando:
+Una vez la app se esté ejecutando con `npm run dev`, se pueden ejecutar los tests de Cypress usando:
 
 1. `npx cypress open`.
 2. Clicar en "E2E Testing".
