@@ -9,6 +9,7 @@
   text-align: center;
   background-color: #F6F6F6;
   font-family: 'Inter', 'Roboto', sans-serif;
+  min-height: 100vh;
 }
 
 .logo {
