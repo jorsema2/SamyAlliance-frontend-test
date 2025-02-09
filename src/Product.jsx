@@ -22,42 +22,44 @@ const Product = ({ product, likeProduct }) => {
         <p>{product.price}.00€</p>
       </div>
       <img src={product.picture} alt={product.title} className="image" />
-      <div className="interaction-buttons-container">
-        <button
-          onClick={() =>
-            likeProduct({
-              variables: {
-                input: {
-                  imageId: product.id,
+      <div className="product-info">
+        <div className="interaction-buttons-container">
+          <button
+            onClick={() =>
+              likeProduct({
+                variables: {
+                  input: {
+                    imageId: product.id,
+                  },
                 },
-              },
-            })
-          }
-          aria-label={`Like this product. Currently ${
-            product.liked ? "liked" : "unliked"
-          }`}
-        >
-          <div className="button-content-container">
-            <div className="like-icon">
-              {product.liked ? <FaHeart /> : <FaRegHeart />}
+              })
+            }
+            aria-label={`Like this product. Currently ${
+              product.liked ? "liked" : "unliked"
+            }`}
+          >
+            <div className="button-content-container">
+              <div className="like-icon">
+                {product.liked ? <FaHeart /> : <FaRegHeart />}
+              </div>
+              <div>{product.likesCount}</div>
             </div>
-            <div>{product.likesCount}</div>
-          </div>
-        </button>
-        <button aria-label="Send this product to someone">
-          <div className="button-content-container">
-            <div>
-              <BiSend />
+          </button>
+          <button aria-label="Send this product to someone">
+            <div className="button-content-container">
+              <div>
+                <BiSend />
+              </div>
+              <div>0</div>
             </div>
-            <div>0</div>
-          </div>
-        </button>
-      </div>
-      <div>
-        <p className="product-title">{product.title}</p>
-        <p className="product-subtitle">
-          by <span className="product-author">{product.author}</span>
-        </p>
+          </button>
+        </div>
+        <div>
+          <p className="product-title">{product.title}</p>
+          <p className="product-subtitle">
+            by <span className="product-author">{product.author}</span>
+          </p>
+        </div>
       </div>
     </article>
   );

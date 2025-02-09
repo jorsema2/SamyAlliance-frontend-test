@@ -94,9 +94,9 @@
 }
 
 .product {
-  width: 400px;
-  height: 460px;
-  background-color: #fff;
+  width: 328px;
+  height: 504px;
+  background-color: #F9F9F9;
   border: 1px solid #D3D3D3;
   position: relative;
 }
@@ -125,25 +125,56 @@
   border-top: 120px solid #fff;
 }
 
-.interaction-buttons-container {
-  position: absolute;
+.product-info {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  bottom: 112px;
-  right: 4px;
+  flex-direction: column-reverse;
+}
+
+.interaction-buttons-container {
+  display: flex;
 
   button {
-    background: transparent;
-    border: none;
+    border: 1px solid #D3D3D3;
+    border-radius: 0;
+    width: 50%;
+    height: 56px;
   }
 }
 
 .button-content-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  justify-content: center;
+  color: #1D1D1B;
+  gap: 4px;
+  align-items: center;
+}
 
-  color: #fff;
+@media only screen and (min-device-width: 480px) {
+  .product {
+    width: 400px;
+    height: 460px;
+  }
+
+  .interaction-buttons-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 112px;
+    right: 4px;
+
+    button {
+      background: transparent;
+      border: none;
+    }
+  }
+
+  .button-content-container {
+    display: flex;
+    flex-direction: column;
+
+    color: #fff;
+  }
 }
 
 .like-icon {
